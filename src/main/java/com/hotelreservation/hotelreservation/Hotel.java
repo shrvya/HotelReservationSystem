@@ -2,12 +2,13 @@ package com.hotelreservation.hotelreservation;
 
 public class Hotel {
 	String hotelName;
-	int regularCustomePrice;
-	
+	int weekendRegularPrice;
+	int weekdayRegularPrice;
 
-	public Hotel(String hotelName, int regularCustomePrice) {
+	public Hotel(String hotelName, int weekendRegularPrice, int weekdayRegularPrice) {
 		this.hotelName = hotelName;
-		this.regularCustomePrice = regularCustomePrice;
+		this.weekendRegularPrice = weekendRegularPrice;
+		this.weekdayRegularPrice = weekdayRegularPrice;
 	}
 
 }
