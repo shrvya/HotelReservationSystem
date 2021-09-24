@@ -13,9 +13,9 @@ public class HotelReservationTest {
 	public void checkHotel() throws ParseException {
 		HotelReservationSystem hotelSystem = new HotelReservationSystem();
 
-		hotelSystem.hotellist.add(new Hotel("Lakewood", 110, 90));
-		hotelSystem.hotellist.add(new Hotel("BridgeWood", 160, 60));
-		hotelSystem.hotellist.add(new Hotel("RidgeWood", 220, 50));
+		hotelSystem.hotellist.add(new Hotel("Lakewood", 110, 90,3));
+		hotelSystem.hotellist.add(new Hotel("BridgeWood", 160, 60,4));
+		hotelSystem.hotellist.add(new Hotel("RidgeWood", 220, 50,5));
 		int entry = hotelSystem.hotellist.size();
 		assertEquals(3, entry);
 		SimpleDateFormat formatter = new SimpleDateFormat("ddMMMyyyy", Locale.ENGLISH);

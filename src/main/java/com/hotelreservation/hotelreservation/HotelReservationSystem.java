@@ -18,8 +18,8 @@ public class HotelReservationSystem {
 	 * arraylist hotellist hotelName is name of hotel rating is hotels rating
 	 * 
 	 */
-	public void addHotels(String hotelName, int weekendRegularPrice, int weekdayRegularPrice) {
-		hotellist.add(new Hotel(hotelName, weekendRegularPrice, weekdayRegularPrice));
+	public void addHotels(String hotelName, int weekendRegularPrice, int weekdayRegularPrice,int ratings) {
+		hotellist.add(new Hotel(hotelName, weekendRegularPrice, weekdayRegularPrice,ratings));
 	}
 
 	/*
