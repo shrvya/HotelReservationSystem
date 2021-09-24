@@ -18,13 +18,14 @@ public class HotelReservationSystem {
 	 * arraylist hotellist hotelName is name of hotel rating is hotels rating
 	 * 
 	 */
-	public void addHotels(String hotelName, int weekendRegularPrice, int weekdayRegularPrice,int ratings) {
-		hotellist.add(new Hotel(hotelName, weekendRegularPrice, weekdayRegularPrice,ratings));
+	public void addHotels(String hotelName, int weekendRegularPrice, int weekdayRegularPrice, int ratings) {
+		hotellist.add(new Hotel(hotelName, weekendRegularPrice, weekdayRegularPrice, ratings));
 	}
 
 	/*
 	 * method takes check in and check out dates and calculates the number of days
-	 * and find the hotel charging minimum price
+	 * and find the hotel charging minimum price this method gives hotel with cheap
+	 * price and best rating
 	 */
 	public String cheapestHotel(Date checkin, Date checkout) {
 		workDays = getDays(checkin, checkout);
@@ -33,21 +34,32 @@ public class HotelReservationSystem {
 		workDays = workDays % 10;
 		weekends = totalDays - workDays;
 		int weekendCost, workdayCost;
+
 		workdayCost = hotellist.get(0).weekdayRegularPrice * workDays;
 		String cheapWorkdayHotel = hotellist.get(0).hotelName;
+		int rate;
 		weekendCost = hotellist.get(0).weekendRegularPrice * weekends;
+
 		int totalCost = weekendCost + workdayCost;
 
 		for (int index = 0; index < hotellist.size(); index++) {
-			workdayCost = hotellist.get(index).weekdayRegularPrice * workDays;
-			weekendCost = hotellist.get(index).weekendRegularPrice * weekends;
-			int temp = weekendCost + workdayCost;
-			if (temp < totalCost) {
+			rate = hotellist.get(index).ratings;
+			if (rate >= 3 && rate < 5) {
+				workdayCost = hotellist.get(index).weekdayRegularPrice * workDays;
+				weekendCost = hotellist.get(index).weekendRegularPrice * weekends;
+				int temp = weekendCost + workdayCost;
+				if ((temp > totalCost)) {
 
-				cheapWorkdayHotel = hotellist.get(index).hotelName;
-				totalCost = temp;
+					cheapWorkdayHotel = hotellist.get(index).hotelName;
+					totalCost = temp;
+				}
+
+			}
+			if (rate < 3) {
+				continue;
 			}
 		}
+
 		return cheapWorkdayHotel;
 	}
 
