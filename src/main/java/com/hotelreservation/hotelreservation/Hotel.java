@@ -5,10 +5,11 @@ public class Hotel {
 	int weekendRegularPrice;
 	int weekdayRegularPrice;
 
-	public Hotel(String hotelName, int weekendRegularPrice, int weekdayRegularPrice) {
+	public Hotel(String hotelName, int weekdayRegularPrice, int weekendRegularPrice) {
 		this.hotelName = hotelName;
-		this.weekendRegularPrice = weekendRegularPrice;
 		this.weekdayRegularPrice = weekdayRegularPrice;
+		this.weekendRegularPrice = weekendRegularPrice;
+
 	}
 
 }
